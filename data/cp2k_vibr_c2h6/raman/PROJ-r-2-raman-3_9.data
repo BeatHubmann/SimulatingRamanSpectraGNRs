@@ -1,0 +1,18 @@
+
+         POLARIZABILITY TENSOR (atomic units):
+         xx,yy,zz       28.05950       25.21562       25.20940
+         xy,xz,yz       -0.00756        0.07225       -0.00367
+         yx,zx,zy        0.00085        0.06684       -0.00678
+         POLARIZABILITY TENSOR (Angstrom^3):
+         xx,yy,zz        4.15799        3.73657        3.73565
+         xy,xz,yz       -0.00112        0.01071       -0.00054
+         yx,zx,zy        0.00013        0.00990       -0.00100
+
+         POLARIZABILITY TENSOR (atomic units):
+         xx,yy,zz       28.05957       25.21571       25.20953
+         xy,xz,yz        0.00395        0.07216       -0.01142
+         yx,zx,zy        0.01234        0.06679       -0.01460
+         POLARIZABILITY TENSOR (Angstrom^3):
+         xx,yy,zz        4.15800        3.73658        3.73567
+         xy,xz,yz        0.00058        0.01069       -0.00169
+         yx,zx,zy        0.00183        0.00990       -0.00216

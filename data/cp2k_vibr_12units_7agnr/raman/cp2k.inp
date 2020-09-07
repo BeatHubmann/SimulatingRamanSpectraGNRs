@@ -1,0 +1,101 @@
+&FORCE_EVAL
+  METHOD Quickstep
+  &DFT
+    BASIS_SET_FILE_NAME ./BR
+    POTENTIAL_FILE_NAME ./GR
+    RESTART_FILE_NAME ./PROJ-RESTART.wfn
+    &PRINT
+      &MOMENTS
+      &END
+    &END
+    &QS
+      METHOD GPW
+      EXTRAPOLATION ASPC
+      EXTRAPOLATION_ORDER 3
+      EPS_DEFAULT 1.0E-14
+#     MAP_CONSISTENT
+    &END QS
+    &MGRID
+      CUTOFF 600
+      NGRIDS 5
+    &END
+    &SCF
+      MAX_SCF 20
+      SCF_GUESS RESTART
+      EPS_SCF 1.0E-9
+      &OT
+        PRECONDITIONER  FULL_SINGLE_INVERSE
+        MINIMIZER  CG
+      &END
+      &OUTER_SCF
+        MAX_SCF 15
+        EPS_SCF 1.0E-9
+      &END
+      &PRINT
+        &RESTART
+          &EACH
+            QS_SCF 0
+            GEO_OPT 1
+          &END
+          ADD_LAST NUMERIC
+          FILENAME RESTART
+        &END
+        &RESTART_HISTORY OFF
+        &END
+      &END
+    &END SCF
+    &XC
+      &XC_FUNCTIONAL PADE
+      &END XC_FUNCTIONAL
+    &END XC
+  &END DFT
+  &PROPERTIES
+    &LINRES
+       MAX_ITER 2000
+       PRECONDITIONER FULL_ALL
+       EPS 1E-6
+       &POLAR
+          DO_RAMAN T
+       &END
+    &END
+  &END
+  &SUBSYS
+    &CELL
+       ABC 80 25 15
+    &END
+    &TOPOLOGY
+     COORD_FILE_NAME ./12units_7agnr-opt.xyz
+     COORDINATE xyz
+    &END
+    &KIND C
+      BASIS_SET TZV2P-MOLOPT-GTH
+      POTENTIAL GTH-PBE-q4
+    &END KIND
+    &KIND H
+      BASIS_SET TZV2P-MOLOPT-GTH
+      POTENTIAL GTH-PBE-q1
+    &END KIND
+  &END SUBSYS
+&END FORCE_EVAL
+&GLOBAL
+  PRINT_LEVEL LOW
+  PROJECT PROJ
+  RUN_TYPE NORMAL_MODES
+#  RUN_TYPE GEO_OPT
+  WALLTIME 86000
+  EXTENDED_FFT_LENGTHS
+&END GLOBAL
+
+&VIBRATIONAL_ANALYSIS
+   NPROC_REP 48
+   DX 0.002
+   INTENSITIES
+   &PRINT
+     &PROGRAM_RUN_INFO ON
+     &END
+   &END
+&END
+
+#&EXT_RESTART
+# RESTART_FILE_NAME ./PROJ-1.restart
+#&END
