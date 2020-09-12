@@ -1,6 +1,8 @@
 # Simulating Raman spectra: A CP2K-based implementation and its application to defective graphene nanoribbons
 
-![doi:10.5281/zenodo.4016745](https://zenodo.org/badge/DOI/10.5281/zenodo.4016745.svg)
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4026342.svg)](https://doi.org/10.5281/zenodo.4026342)
+
 
 ## Project Synopsis
 
